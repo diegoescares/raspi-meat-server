@@ -10,8 +10,6 @@ plumber      = require("gulp-plumber")
 jade         = require("gulp-jade")
 uglify       = require("gulp-uglify")
 csso         = require("gulp-csso")
-imagemin     = require("gulp-imagemin")
-pngquant     = require("imagemin-pngquant")
 
 concat       = require 'gulp-concat'
 html2js      = require 'gulp-html2js'
