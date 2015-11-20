@@ -1,7 +1,7 @@
 require('dotenv').load({silent:true})
-
+moment = require 'moment'
 express = require 'express'
-
+firebase = require './config/firebase'
 
 # Create app instance.
 app = express()
@@ -18,6 +18,17 @@ config.setEnvironment(app,env)
 #if env == 'development'
 require('./router-api')(app)
 require('./router')(app)
+
+lastTimestamp = Date.now()
+firebase.on 'value', (snapshot)->
+	current = snapshot.val()
+	now = Date.now()
+	duration =  now - lastTimestamp
+	if duration > 5000
+		console.log 'from', moment(lastTimestamp).format('YYYY-MM-D HH:mm:ss')
+		console.log 'to', moment(now).format('YYYY-MM-D HH:mm:ss')
+		console.log 'lasted', duration
+		lastTimestamp = now
 
 # Export application object
 module.exports = app
