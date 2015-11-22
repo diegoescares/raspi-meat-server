@@ -63,7 +63,6 @@ gulp.task "default", ['build:server'], ->
 	gulp.watch files.stylus.watch, [ "build:css" ]
 	gulp.watch files.coffee.watch, [ "build:coffee" ]
 	gulp.watch files.images.watch, [ "build:images" ]
-	gulp.watch files.server.watch,   [ "build:server" ]
 
 	return
 
@@ -75,6 +74,7 @@ gulp.task "serve", ['build:server'], ->
 		watch: [
 			'app/index.js'
 		]
+	gulp.watch files.server.watch,   [ "build:server" ]
 	return
 
 gulp.task "debug", ['build:server'], -> 	
