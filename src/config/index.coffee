@@ -1,11 +1,11 @@
 express = require 'express'
-mongoose = require 'mongoose'
+#mongoose = require 'mongoose'
 session = require 'express-session'
 flash = require 'connect-flash'
 bodyParser = require 'body-parser'
 compression = require 'compression'
-MongoStore = require('connect-mongo')(session)
-mpromise = require 'mongoose/node_modules/mpromise'
+#MongoStore = require('connect-mongo')(session)
+#mpromise = require 'mongoose/node_modules/mpromise'
 Promise = require 'bluebird'
 
 #### Config file
@@ -31,7 +31,7 @@ exports.setEnvironment = (app,env) ->
 			exports.DEBUG_ERROR = true
 			exports.DEBUG_CLIENT = false
 
-
+	###
 	# MongoDB
 	# Add catch method for compatibility with bluebird
 	mpromise.prototype.catch = (onReject)->
@@ -39,8 +39,8 @@ exports.setEnvironment = (app,env) ->
 
 	db_config = process.env.MONGODB_URI || process.env.MONGOLAB_URI
 	mongoose.connect db_config
-
-
+	
+	
 	# Global Middleware
 	app.use session(
 		resave: false
@@ -50,6 +50,8 @@ exports.setEnvironment = (app,env) ->
 		key: "sid"
 		store: new MongoStore({ mongooseConnection: mongoose.connection })
 	)
+
+	###
 
 	app.use flash()
 	app.use bodyParser()

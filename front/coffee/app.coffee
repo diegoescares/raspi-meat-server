@@ -5,7 +5,6 @@ app = angular.module 'app', [
 	'app.directives'
 	'app.controllers'
 	'app.filters'
-	'app.templates'
 	'firebase'
 ]
 
