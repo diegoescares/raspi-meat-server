@@ -9,8 +9,106 @@ $screen-sm = 480px
 $screen-md = 768px
 $screen-lg = 992px
 
-@import 'core/forms.styl'
-@import 'core/buttons.styl'
+//@import 'core/forms.styl'
+//@import 'core/buttons.styl'
 
-@import 'site/**/*'
+//@import 'site/**/*'
+
+body
+	text-align center
+
+.articles
+	position absolute
+	top 50%
+	left 0
+	width 100%
+	margin-top -250px
+	transition 1s ease
+	@media break4
+		margin-top -140px
+	@media break2
+		margin-top 20px
+		top 0
+
+
+@keyframes skull
+	0%
+		opacity 0
+		transform translateY(100%) rotate(-20deg)
+	50%
+		transform translateY(0%) rotate(0)
+		opacity 1
+	100%
+		transform translateY(-100%) rotate(20deg)
+		opacity 0
+
+@keyframes skull2
+	0%
+		opacity 0
+		transform translateY(150%) rotate(30deg)
+	50%
+		transform translateY(0%) rotate(0)
+		opacity 1
+	100%
+		transform translateY(-150%) rotate(-30deg)
+		opacity 0
+
+
+article
+	background #3dfad9
+	circle 500px
+	margin 0 20px
+	display inline-block
+	transition 1s ease
+	font-size 200px
+	position relative
+	@media break4
+		circle 280px
+		font-size 100px
+	@media break2
+		margin 10px
+	.fa
+		top -10px
+		opacity .5
+		color black
+		position relative
+
+
+	.imgs
+		opacity 0
+		transition 2s ease
+		img
+			position absolute
+			
+			&:nth-child(1)
+				top 30%
+				left 20%
+				width 15%
+				animation skull 4s 2s linear infinite backwards
+
+			&:nth-child(2)
+				top 30%
+				right 30%
+				width 10%
+				animation skull2 5s linear infinite backwards
+
+			&:nth-child(3)
+				top 60%
+				left 30%
+				width 10%
+				animation skull 3s 1s linear infinite backwards
+
+			&:nth-child(4)
+				top 60%
+				right 20%
+				width 6%
+				animation-delay .5s
+				animation-name skull2
+				animation skull2 3s .5s linear infinite backwards
+
+
+	&.busy
+		background #ff5b5b
+		.imgs
+			opacity .2
 

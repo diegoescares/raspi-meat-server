@@ -2,7 +2,7 @@
 html(lang="en")
 	head
 		base(href=base_url)
-		title TITLE
+		title ¿Ta ocupao?
 
 		meta(charset='UTF-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
@@ -23,6 +23,22 @@ html(lang="en")
 			script(src="resources/bundle.min.js")
 			//[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]
 	body(ng-app="app" ng-controller="BaseCtrl")
-		h1 Okap
-		h2 Hombres: {{ status.b_1 }}
-		h2 Mujeres: {{ status.b_2 }}
+	
+
+		.articles
+	
+			article(ng-class="status.b_1? 'busy':''")
+				span.fa.fa-male
+				.imgs
+					img(src="img/skull.png")
+					img(src="img/skull.png")
+					img(src="img/skull.png")
+					img(src="img/skull.png")
+
+			article(ng-class="status.b_2? 'busy':''")
+				span.fa.fa-female
+				.imgs
+					img(src="img/skull.png")
+					img(src="img/skull.png")
+					img(src="img/skull.png")
+					img(src="img/skull.png")
