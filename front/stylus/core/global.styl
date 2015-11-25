@@ -1,0 +1,156 @@
+
+// Reset
+
+*
+	margin 0
+	padding 0
+	border 0
+	outline 0
+	box-sizing border-box
+
+
+// Base styles
+
+body
+	-webkit-font-smoothing antialiased
+	background global_bg
+
+body, button, input, textarea, select
+	font-family font
+	color global_color
+	font-size global_size
+	line-height global_lh
+
+a, button, input, textarea, select
+	transition tn
+
+a
+	color color
+	text-decoration none
+	&.a-classic
+		text-decoration underline
+
+button
+select
+label
+input[type='checkbox']
+input[type='radio']
+	&:hover
+		cursor pointer
+
+p
+	margin-bottom sep
+
+h1, h2, h3, h4, h5
+	font-family font_2
+	margin-bottom sep
+	font-weight normal
+
+h1
+.h1
+	title h1
+
+h2
+.h2
+	title h2
+
+h3
+.h3
+	title h3
+
+h4
+.h4
+	title h4
+
+h5		
+.h5
+	title h5
+
+ul
+ol
+	list-style-type none
+
+img
+	display block
+	width auto
+	height auto
+	max-width 100%
+	&.img-ma
+		margin 0 auto
+	&.img-rad
+		radius rad
+	&.img-circle
+		radius 50%
+
+svg
+	display block
+	max-width 100%
+
+
+.table-container
+	overflow auto
+	table
+		width 100%
+		
+table
+	border-collapse collapse
+	line-height global_lh
+	text-align left
+	td
+	th
+		padding 15px 20px
+		@media break2
+			padding 10px
+
+
+
+
+
+
+// Base layout
+
+.limit
+	max-width limit
+	margin 0 auto
+	position relative
+	&.limit-2
+		max-width limit_2
+	&.limit-3
+		max-width limit_3
+
+.inner
+	padding sep
+	&.inner-half
+		padding (sep/2)
+	&.inner-2
+		padding sep*2 sep
+		@media break2
+			padding sep
+	&.inner-3
+		padding sep*3 sep
+		@media break3
+			padding sep*2 sep
+		@media break2
+			padding sep
+	&.inner-4
+		padding sep*4 sep
+		@media break3
+			padding sep*3 sep
+		@media break2
+			padding sep*2 sep
+
+.sep
+	height sep
+	&.sep-2
+		height sep*2
+		@media break2
+			height sep
+
+
+
+.right
+	text-align right
+
+.center
+	text-align center
+

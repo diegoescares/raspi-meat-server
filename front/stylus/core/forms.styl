@@ -1,0 +1,78 @@
+
+
+
+// Estilos de formularios
+
+
+input
+button
+select
+textarea
+	display block
+	width 100%
+	border border
+	padding 10px 15px
+	vertical-align top
+	background white
+	appearance none
+	radius rad
+
+input[type='checkbox']
+input[type='radio']
+	display inline-block
+	width 18px
+	height 18px
+	padding 0
+	margin-right 2px
+	margin-top 2px
+	vertical-align -4px
+	position relative
+	overflow hidden
+	background-image url(../img/icon-checked.png)
+	background-position center -20px
+	background-repeat no-repeat
+	&:checked
+		background-color light
+		border-color light
+		background-position center center
+	&:focus
+		outline 0
+
+input[type='radio']
+	radius 15px
+
+select
+select.form-control
+	background-image url(../img/icon-select.png)
+	background-position right center
+	background-repeat no-repeat
+	padding-right 40px
+	position relative
+
+textarea
+	height 200px
+	resize none
+
+label
+	font-weight normal
+
+
+
+
+.form-control
+	color black
+	&:focus
+		box-shadow none
+		border-color color
+
+.form-group-name
+	margin-bottom 5px
+
+.form-group-btnright
+	position relative
+	.button
+		position absolute !important
+		bottom 5px
+		right 5px
+
+

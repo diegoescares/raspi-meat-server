@@ -9,8 +9,7 @@ html(lang="en")
 
 		link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
 
-		link(href='img/favicon.ico', rel='shortcut icon')
-
+		link(href='img/favicon.ico', rel='shortcut icon')		
 		if env == 'development'
 			each src in sources.css
 				link(rel="stylesheet", href=src)
@@ -23,5 +22,7 @@ html(lang="en")
 			link(rel="stylesheet", href="resources/styles.min.css")
 			script(src="resources/bundle.min.js")
 			//[if lt IE 9]> <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script> <![endif]
-	body
-		h1 Hello.
+	body(ng-app="app" ng-controller="BaseCtrl")
+		h1 Okap
+		h2 Hombres: {{ status.b_1 }}
+		h2 Mujeres: {{ status.b_2 }}

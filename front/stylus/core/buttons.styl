@@ -1,0 +1,125 @@
+
+button_padding_base   = 5px 10px
+button_padding_aument = 2px 10px
+button_size_base      = global_size - 2
+button_lh_base        = global_lh - 2
+button_font_aument    = 2
+
+.button
+	font-family font
+	text-decoration none !important
+	display inline-block
+	border 1px solid transparent
+	width auto
+	transition tn
+	text-align center
+	margin-bottom 2px
+	vertical-align middle
+	radius rad
+	background color
+	color white
+	text-transform uppercase
+
+	// Sizes
+		
+	padding button_padding_base
+	font-size button_size_base
+	line-height button_lh_base
+
+	&.button-small
+		padding button_padding_base[0] - button_padding_aument[0] button_padding_base[1]
+		font-size button_size_base - button_font_aument
+		line-height button_lh_base - button_font_aument
+	
+	&.button-medium
+		padding button_padding_base[0] + button_padding_aument[0] button_padding_base[1] + button_padding_aument[1]
+		font-size button_size_base + button_font_aument
+		line-height button_lh_base + button_font_aument
+	
+	&.button-big
+		padding button_padding_base[0] + button_padding_aument[0]*2 button_padding_base[1] + button_padding_aument[1]*2
+		font-size button_size_base + button_font_aument*2
+		line-height button_lh_base + button_font_aument*2
+
+
+	// Styles
+
+	&.button-white
+		background white
+		color dark
+
+	&.button-lighter
+		background lighter
+		color dark
+
+	&.button-light
+		background light
+		color dark
+
+	&.button-gray
+		background gray
+		color white
+
+	&.button-dark
+		color white
+		background dark
+
+	&.button-black
+		color white
+		background black
+	
+	&.button-line
+		border-color light
+		background transparent
+		color dark
+
+	&.button-line-white
+		border-color white
+		background transparent
+		color white
+
+	&.button-disabled
+	&[disabled]
+		background light
+		border-color light
+		color white
+		&:hover
+			background light
+			border-color light
+			color white
+			cursor default
+
+
+	// Standar hover
+
+	&:hover
+		border-color lighten(color,10%)
+		background lighten(color,10%)
+		color white
+		text-decoration none
+		cursor pointer
+
+
+
+	// Others
+
+	&.button-block
+		display block
+		width 100%
+		
+	&.button-cover
+		&:after
+			content ""
+			cover absolute
+
+
+	.fa
+		&.fa-angle-right
+		&.fa-chevron-right
+			margin-left 10px
+		&.fa-angle-left
+		&.fa-chevron-left
+			margin-left 10px
+
+
+

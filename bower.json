@@ -15,17 +15,8 @@
   ],
   "dependencies": {
     "angular": "~1.4.5",
-    "angular-animate": "~1.4.5",
-    "angular-bootstrap": "~0.14.2",
-    "angular-resource": "~1.4.5",
-    "angular-route": "~1.4.5",
-    "angular-sanitize": "~1.4.5",
-    "bootstrap-stylus": "~4.0.5",
-    "jquery": "~2.1.4",
     "lodash": "~3.10.1",
     "moment": "~2.10.6",
-    "ng-file-upload": "~7.0.17",
-    "angular-i18n": "~1.4.7",
-    "angular-messages": "~1.4.7"
+    "angularfire": "~1.1.3"
   }
 }
