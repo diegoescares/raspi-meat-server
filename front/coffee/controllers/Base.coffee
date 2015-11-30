@@ -13,8 +13,8 @@ controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
 		key = _.keys(result)[0]
 		session = result[key]
 		$scope.lastSessions[session.id] = session 
-		console.log session.id,moment(session.startTime).format('HH:MM:ss')
-
+		$scope.$apply()
+		
 	baseQuery.equalTo('b_2')
 		.limitToLast(1)
 		.on 'value', setLastSessionData
