@@ -9,7 +9,7 @@ html(lang="en")
 
 		link(href='//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', rel='stylesheet', type='text/css')
 
-		link(href='img/favicon.ico', rel='shortcut icon')		
+		link(href='img/favicon.ico', rel='shortcut icon')
 		if env == 'development'
 			each src in sources.css
 				link(rel="stylesheet", href=src)
@@ -42,3 +42,6 @@ html(lang="en")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
+
+			pre
+				{{ lastSessions | json }}
