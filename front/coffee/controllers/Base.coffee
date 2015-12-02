@@ -1,4 +1,4 @@
-controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
+controllers.controller 'BaseCtrl', ($scope,$firebaseObject,$interval,Time)->
 	threshold = 180000
 	ref = new Firebase("https://raspberry-meat.firebaseio.com")
 
@@ -8,6 +8,7 @@ controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
 		.orderByChild('id')
 	
 	$scope.lastSessions = {}
+	$scope.isOutOfSync = false
 
 	setLastSessionData = (snapshot)->
 		result = snapshot.val()
@@ -23,10 +24,9 @@ controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
 	baseQuery.equalTo('b_1')
 		.limitToLast(1)
 		.on 'value', setLastSessionData
-	
 
 	$scope.showWarning = (id)->
-		now = Date.now()
+		now = Time.getCurrent()
 		session = $scope.lastSessions[id]
 		return false if ! session
 		if session.endTime?
@@ -37,3 +37,13 @@ controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
 				return true
 
 		return false
+
+	# Check for a heartbeat - if over 15 seconds difference the pi must have stopped responding
+	$interval ->
+		now = Time.getCurrent()
+		difference =  now - $scope.status.heartbeat 
+		if difference > 15000
+			$scope.isOutOfSync = true
+		else
+			$scope.isOutOfSync = false
+	, 1000

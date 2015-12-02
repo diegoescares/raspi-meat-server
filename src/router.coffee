@@ -22,7 +22,8 @@ module.exports = (app)->
 
 	# Routes
 	router.get '/', (req,res,next)->
-		res.render('index')
+		res.render 'index', 
+			baseTime: Date.now()
 
 
 	router.use (req,res,next)->

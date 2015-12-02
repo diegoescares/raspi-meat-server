@@ -6,6 +6,7 @@ app = angular.module 'app', [
 	'app.controllers'
 	'app.filters'
 	'firebase'
+	'ngAnimate'
 ]
 
 filters     = angular.module 'app.filters', []
