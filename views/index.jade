@@ -29,7 +29,7 @@ html(lang="en")
 	
 			article(ng-class="status.b_1? 'busy':''")
 				span.fa.fa-male
-				.imgs
+				.imgs(ng-if="showWarning('b_1')")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
@@ -37,11 +37,8 @@ html(lang="en")
 
 			article(ng-class="status.b_2? 'busy':''")
 				span.fa.fa-female
-				.imgs
+				.imgs(ng-if="showWarning('b_2')")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
 					img(src="img/skull.png")
-
-			pre
-				{{ lastSessions | json }}

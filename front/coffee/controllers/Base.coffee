@@ -1,4 +1,5 @@
 controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
+	threshold = 180000
 	ref = new Firebase("https://raspberry-meat.firebaseio.com")
 
 	$scope.status = $firebaseObject(ref.child('status'))
@@ -24,7 +25,15 @@ controllers.controller 'BaseCtrl', ($scope,$firebaseObject)->
 		.on 'value', setLastSessionData
 	
 
-	$scope.getElapsedTimeFor = (id)->
-		elapsed = Date.now() - $scope.lastSessions[id].startTime
-		console.log elapsed
-		return elapsed
+	$scope.showWarning = (id)->
+		now = Date.now()
+		session = $scope.lastSessions[id]
+		return false if ! session
+		if session.endTime?
+			if session.duration > threshold && (now - session.endTime) < 30000 
+				return true
+		else
+			if (now - session.startTime) > threshold
+				return true
+
+		return false
