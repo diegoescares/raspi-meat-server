@@ -8,6 +8,8 @@ app = express()
 # Define Port & Environment
 app.port = process.env.PORT or process.env.VMC_APP_PORT or 3000
 env = process.env.NODE_ENV or "development"
+app.locals.gaId = process.env.GA_ID || false
+
 
 # Config depending on environment
 config = require "./config"

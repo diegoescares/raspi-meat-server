@@ -13,7 +13,9 @@ module.exports = (app)->
 		router.use(express.static('front'))
 	else
 		router.use(express.static('dist'))
-
+	
+	router.use(middleware.locals)
+	
 	router.use (req,res,next)->
 		res.locals.sources = sources
 		res.locals.env = env
@@ -22,9 +24,7 @@ module.exports = (app)->
 
 	# Routes
 	router.get '/', (req,res,next)->
-		res.render 'index', 
-			baseTime: Date.now()
-
+		res.render 'index'
 
 	router.use (req,res,next)->
 		res.status(404).render('404')
